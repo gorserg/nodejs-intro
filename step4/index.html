@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Learn JS</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $.get('/ping', function (res) {
+                $('#output').html(res.ping);
+            })
+        });
+    </script>
+</head>
+<body>
+<h1>Node js demo</h1>
+<div id="output"></div>
+</body>
+</html>
