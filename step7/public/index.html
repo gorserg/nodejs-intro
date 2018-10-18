@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <title>Learn JS</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+<h1>Static content</h1>
+<div id="output"></div>
+<h2>Track list</h2>
+<div id="placeholder"></div>
+<script>
+    $.get('/api/ping', function (res) {
+        $('#output').html(res.ping);
+    });
+    $.get('/api/tracks', function (data) {
+        let array = $.map(data, function (track) {
+            return $(`<div id="${track.id}" >${track.id} - ${track.name}</div>`);
+        });
+        $("#placeholder").append(array);
+    });
+</script>
+</body>
+</html>
