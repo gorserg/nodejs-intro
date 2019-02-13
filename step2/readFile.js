@@ -1,5 +1,8 @@
 var fs = require('fs');
 
 fs.readFile('myfile.txt', function(err, data) {
-  console.log(err, data);
+  if (err) {
+    return console.log(err);
+  }
+  console.log(data);
 });
